@@ -163,139 +163,147 @@ def dashboard(db: Session = Depends(get_db)):
         "medium_priority_tickets": medium,
         "low_priority_tickets": low
     }
-  @app.get("/seed-demo-data")
+@app.get("/seed-demo-data")
 def seed_demo_data(db: Session = Depends(get_db)):
 
+    demo_tickets = [
 
-demo_tickets = [
+        Ticket(
+            employee_name="Rahul Sharma",
+            email="ceo@company.com",
+            department="Executive",
+            issue_title="Email Server Outage",
+            issue_description="Unable to send or receive emails before board meeting",
+            priority="CRITICAL",
+            category="Email Infrastructure",
+            ai_summary="CEO unable to access corporate email services before an important meeting.",
+            suggested_resolution="Verify Exchange services and mail routing."
+        ),
 
-    Ticket(
-        employee_name="Rahul Sharma",
-        email="ceo@company.com",
-        department="Executive",
-        issue_title="Email Server Outage",
-        issue_description="Unable to send or receive emails before board meeting",
-        priority="CRITICAL",
-        category="Email Infrastructure",
-        ai_summary="CEO unable to access corporate email services before an important meeting.",
-        suggested_resolution="Verify Exchange services and mail routing."
-    ),
+        Ticket(
+            employee_name="Anjali Verma",
+            email="director@company.com",
+            department="Finance",
+            issue_title="Database Access Failure",
+            issue_description="Cannot access quarterly reports",
+            priority="HIGH",
+            category="Database Access",
+            ai_summary="Director unable to access reporting database.",
+            suggested_resolution="Verify permissions and database connectivity."
+        ),
 
-    Ticket(
-        employee_name="Anjali Verma",
-        email="director@company.com",
-        department="Finance",
-        issue_title="Database Access Failure",
-        issue_description="Cannot access quarterly reports",
-        priority="HIGH",
-        category="Database Access",
-        ai_summary="Director unable to access reporting database.",
-        suggested_resolution="Verify permissions and database connectivity."
-    ),
+        Ticket(
+            employee_name="Vikram Rao",
+            email="ceo@company.com",
+            department="Operations",
+            issue_title="Laptop Blue Screen",
+            issue_description="System crashes during startup",
+            priority="CRITICAL",
+            category="Hardware Failure",
+            ai_summary="Executive laptop crashes during boot.",
+            suggested_resolution="Run diagnostics and analyze crash dumps."
+        ),
 
-    Ticket(
-        employee_name="Vikram Rao",
-        email="ceo@company.com",
-        department="Operations",
-        issue_title="Laptop Blue Screen",
-        issue_description="System crashes during startup",
-        priority="CRITICAL",
-        category="Hardware Failure",
-        ai_summary="Executive laptop crashes during boot.",
-        suggested_resolution="Run diagnostics and analyze crash dumps."
-    ),
+        Ticket(
+            employee_name="Priya Nair",
+            email="manager@company.com",
+            department="HR",
+            issue_title="VPN Connectivity Failure",
+            issue_description="Unable to connect remotely",
+            priority="MEDIUM",
+            category="VPN Connectivity",
+            ai_summary="Manager unable to establish VPN connection.",
+            suggested_resolution="Reset VPN credentials and verify connectivity."
+        ),
 
-    Ticket(
-        employee_name="Priya Nair",
-        email="manager@company.com",
-        department="HR",
-        issue_title="VPN Connectivity Failure",
-        issue_description="Unable to connect remotely",
-        priority="MEDIUM",
-        category="VPN Connectivity",
-        ai_summary="Manager unable to establish VPN connection.",
-        suggested_resolution="Reset VPN credentials and verify connectivity."
-    ),
+        Ticket(
+            employee_name="Arjun Patel",
+            email="director@company.com",
+            department="Engineering",
+            issue_title="Source Control Access Denied",
+            issue_description="Git repository access lost",
+            priority="HIGH",
+            category="Access Management",
+            ai_summary="Director cannot access source code repositories.",
+            suggested_resolution="Restore repository permissions."
+        ),
 
-    Ticket(
-        employee_name="Arjun Patel",
-        email="director@company.com",
-        department="Engineering",
-        issue_title="Source Control Access Denied",
-        issue_description="Git repository access lost",
-        priority="HIGH",
-        category="Access Management",
-        ai_summary="Director cannot access source code repositories.",
-        suggested_resolution="Restore repository permissions."
-    ),
+        Ticket(
+            employee_name="Suresh Kumar",
+            email="ceo@company.com",
+            department="Management",
+            issue_title="Data Corruption",
+            issue_description="Project files corrupted",
+            priority="CRITICAL",
+            category="Data Recovery",
+            ai_summary="Critical business files became corrupted.",
+            suggested_resolution="Restore latest backup immediately."
+        ),
 
-    Ticket(
-        employee_name="Suresh Kumar",
-        email="ceo@company.com",
-        department="Management",
-        issue_title="Data Corruption",
-        issue_description="Project files corrupted",
-        priority="CRITICAL",
-        category="Data Recovery",
-        ai_summary="Critical business files became corrupted.",
-        suggested_resolution="Restore latest backup immediately."
-    ),
+        Ticket(
+            employee_name="Kiran Reddy",
+            email="manager@company.com",
+            department="IT",
+            issue_title="Printer Offline",
+            issue_description="Office printer not responding",
+            priority="LOW",
+            category="Hardware Support",
+            ai_summary="Network printer unavailable.",
+            suggested_resolution="Check printer connectivity and restart device."
+        ),
 
-    Ticket(
-        employee_name="Kiran Reddy",
-        email="manager@company.com",
-        department="IT",
-        issue_title="Printer Offline",
-        issue_description="Office printer not responding",
-        priority="LOW",
-        category="Hardware Support",
-        ai_summary="Network printer unavailable.",
-        suggested_resolution="Check printer connectivity and restart device."
-    ),
+        Ticket(
+            employee_name="Meena Sharma",
+            email="director@company.com",
+            department="Sales",
+            issue_title="CRM Access Issue",
+            issue_description="Cannot login to CRM",
+            priority="HIGH",
+            category="Application Access",
+            ai_summary="Director unable to access CRM platform.",
+            suggested_resolution="Reset credentials and verify account status."
+        ),
 
-    Ticket(
-        employee_name="Meena Sharma",
-        email="director@company.com",
-        department="Sales",
-        issue_title="CRM Access Issue",
-        issue_description="Cannot login to CRM",
-        priority="HIGH",
-        category="Application Access",
-        ai_summary="Director unable to access CRM platform.",
-        suggested_resolution="Reset credentials and verify account status."
-    ),
+        Ticket(
+            employee_name="Rohit Singh",
+            email="ceo@company.com",
+            department="Operations",
+            issue_title="Server Down",
+            issue_description="Production server unavailable",
+            priority="CRITICAL",
+            category="Infrastructure",
+            ai_summary="Production application server unavailable.",
+            suggested_resolution="Investigate server logs and restart services."
+        ),
 
-    Ticket(
-        employee_name="Rohit Singh",
-        email="ceo@company.com",
-        department="Operations",
-        issue_title="Server Down",
-        issue_description="Production server unavailable",
-        priority="CRITICAL",
-        category="Infrastructure",
-        ai_summary="Production application server unavailable.",
-        suggested_resolution="Investigate server logs and restart services."
-    ),
+        Ticket(
+            employee_name="Deepika Rao",
+            email="manager@company.com",
+            department="Support",
+            issue_title="Email Sync Problem",
+            issue_description="Emails not syncing on mobile",
+            priority="MEDIUM",
+            category="Email Support",
+            ai_summary="User unable to sync corporate emails.",
+            suggested_resolution="Reconfigure mail profile."
+        )
 
-    Ticket(
-        employee_name="Deepika Rao",
-        email="manager@company.com",
-        department="Support",
-        issue_title="Email Sync Problem",
-        issue_description="Emails not syncing on mobile",
-        priority="MEDIUM",
-        category="Email Support",
-        ai_summary="User unable to sync corporate emails.",
-        suggested_resolution="Reconfigure mail profile."
-    )
-]
+    ]
 
-for ticket in demo_tickets:
-    db.add(ticket)
+    existing_count = db.query(Ticket).count()
 
-db.commit()
+    if existing_count > 0:
+        return {
+            "message": "Database already contains data",
+            "total_records": existing_count
+        }
 
-return {
-    "message": "10 demo tickets inserted successfully"
-}
+    for ticket in demo_tickets:
+        db.add(ticket)
 
+    db.commit()
+
+    return {
+        "message": "10 demo tickets inserted successfully",
+        "total_records": 10
+    }
