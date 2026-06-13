@@ -166,7 +166,7 @@ def dashboard(db: Session = Depends(get_db)):
   @app.get("/seed-demo-data")
 def seed_demo_data(db: Session = Depends(get_db)):
 
-```
+
 demo_tickets = [
 
     Ticket(
@@ -298,4 +298,4 @@ db.commit()
 return {
     "message": "10 demo tickets inserted successfully"
 }
-```
+
