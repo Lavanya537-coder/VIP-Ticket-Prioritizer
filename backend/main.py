@@ -163,3 +163,54 @@ def dashboard(db: Session = Depends(get_db)):
         "medium_priority_tickets": medium,
         "low_priority_tickets": low
     }
+    @app.get("/seed-demo-data")
+def seed_demo_data(db: Session = Depends(get_db)):
+
+    demo_tickets = [
+
+        Ticket(
+            employee_name="Rahul Sharma",
+            email="ceo@company.com",
+            department="Executive",
+            issue_title="Email Server Outage",
+            issue_description="Unable to send emails",
+            priority="CRITICAL",
+            category="Email Infrastructure",
+            ai_summary="CEO unable to access email services.",
+            suggested_resolution="Restart mail services."
+        ),
+
+        Ticket(
+            employee_name="Anjali Verma",
+            email="director@company.com",
+            department="Finance",
+            issue_title="Database Access Failure",
+            issue_description="Cannot access reports",
+            priority="HIGH",
+            category="Database Access",
+            ai_summary="Director unable to access reporting database.",
+            suggested_resolution="Verify permissions."
+        ),
+
+        Ticket(
+            employee_name="Vikram Rao",
+            email="ceo@company.com",
+            department="Operations",
+            issue_title="Laptop Blue Screen",
+            issue_description="System crash",
+            priority="CRITICAL",
+            category="Hardware Failure",
+            ai_summary="Executive laptop crashes during boot.",
+            suggested_resolution="Run diagnostics."
+        )
+
+    ]
+
+    for ticket in demo_tickets:
+        db.add(ticket)
+
+    db.commit()
+
+    return {
+        "message": "Demo data inserted"
+    }
