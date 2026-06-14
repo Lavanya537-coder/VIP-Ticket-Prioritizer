@@ -1,4 +1,4 @@
-# VIP Ticket Prioritizer    LINK->https://vip-ticket-prioritizer.vercel.app/tickets
+# VIP Ticket Prioritizer    LINK->https://vip-ticket-prioritizer.vercel.app/
 
 ## Overview
 
