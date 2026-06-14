@@ -1,6 +1,8 @@
 # VIP Ticket Prioritizer    LINK->https://vip-ticket-prioritizer.vercel.app/
 Demo_link->https://drive.google.com/file/d/1Tiz-c6Sm3VbihtQlWxgj06hJZ2mmhfh2/view?usp=drive_link
-Team Members
+
+##Team Members
+
 | Name | Roll No | Branch |
 |--------------------------------|
 | Nadipalli Lavanya | 23U41A0537 | CSE |
